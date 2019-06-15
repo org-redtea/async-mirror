@@ -55,7 +55,9 @@ class List extends Component {
     
     return (
       <ul>
-        list.map((text, index) => (<li key={index}>{text}</li>))
+        {
+          list.map((text, index) => (<li key={index}>{text}</li>))
+        }
       </ul>
     );
   }
