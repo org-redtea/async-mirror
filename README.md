@@ -2,7 +2,13 @@
 
 Cute promise state manager for react and other.
 
-Example: 
+## Installing
+
+```bash
+$ npm i -SE @redtea/cute-promise-state
+```
+
+## Example
 
 ```JSX
 import React, {Component} from 'react';
