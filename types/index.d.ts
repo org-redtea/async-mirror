@@ -14,6 +14,9 @@ export interface PromiseState {
 
     result<T = any>(): T;
     error<T = any>(): T;
+
+    replaceResult(result: any): PromiseState;
+    replaceError(error: any): PromiseState;
 }
 
 export function promiseState(defaultResult: any): PromiseState;
