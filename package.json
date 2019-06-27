@@ -1,6 +1,6 @@
 {
   "name": "@redtea/cute-promise-state",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Cute promise state manager for react and other",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
