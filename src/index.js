@@ -64,6 +64,22 @@ class PromiseState {
   error() {
     return this._error;
   }
+
+  replaceResult(result) {
+    const copy = makeCopy(this);
+
+    copy._result = result;
+
+    return copy;
+  }
+
+  replaceError(error) {
+    const copy = makeCopy(this);
+
+    copy._error = error;
+
+    return copy;
+  }
 }
 
 function makeCopy(target) {

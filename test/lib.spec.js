@@ -204,3 +204,23 @@ describe('reaction', function () {
         expect(next.error()).to.equal(undefined);
     });
 });
+
+describe('replacing', function () {
+    beforeEach(function () {
+        this.target = promiseState(0);
+    });
+
+    it('should replace result and not modify prev instance', function () {
+        const newInstance = this.target.replaceResult(1);
+
+        expect(newInstance.result()).to.equal(1);
+        expect(this.target.result()).to.equal(0);
+    });
+
+    it('should replace error and not modify prev instance', function () {
+        const newInstance = this.target.replaceError(1);
+
+        expect(newInstance.error()).to.equal(1);
+        expect(this.target.error()).to.equal(undefined);
+    });
+});
