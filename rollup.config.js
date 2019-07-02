@@ -1,3 +1,4 @@
+import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
 
 
@@ -9,7 +10,23 @@ export default [
             name: 'promiseState',
             file: pkg.browser,
             format: 'umd'
-        }
+        },
+        plugins: [
+            babel({
+                babelrc: false,
+                presets: [
+                    [
+                        "@babel/env",
+                        {
+                            targets: "> 1%, not dead",
+                            useBuiltIns: false,
+                            modules: false
+                        },
+                    ],
+                ],
+                exclude: 'node_modules/**'
+            })
+        ]
     },
 
     {

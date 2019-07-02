@@ -38,8 +38,11 @@
   "author": "Kirill Khoroshilov <mr.hokid@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "7.4.5",
+    "@babel/preset-env": "7.4.5",
     "chai": "4.2.0",
     "mocha": "6.1.4",
-    "rollup": "1.15.5"
+    "rollup": "1.15.5",
+    "rollup-plugin-babel": "4.3.3"
   }
 }
