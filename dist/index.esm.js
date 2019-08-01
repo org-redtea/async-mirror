@@ -9,6 +9,14 @@ class PromiseState {
     this._pending = false;
     this._resolved = false;
     this._rejected = false;
+
+    this.pending = this.pending.bind(this);
+    this.resolved = this.resolved.bind(this);
+    this.rejected = this.rejected.bind(this);
+    this.result = this.result.bind(this);
+    this.error = this.error.bind(this);
+    this.replaceResult = this.replaceResult.bind(this);
+    this.replaceError = this.replaceError.bind(this);
   }
 
   pending(trueOrFalse) {

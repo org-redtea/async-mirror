@@ -224,3 +224,31 @@ describe('replacing', function () {
         expect(this.target.error()).to.equal(undefined);
     });
 });
+
+describe('methods binding', function() {
+    beforeEach(function() {
+        this.target = promiseState(0);
+    });
+
+    it('all methods should be bound to PromiseState', function() {
+        const {
+            pending,
+            resolved,
+            rejected,
+            result,
+            replaceResult,
+            replaceError
+        } = this.target;
+        const {
+            error
+        } = this.target.rejected(true, 1);
+
+        expect(pending(true)).to.be.instanceOf(this.target.constructor);
+        expect(resolved(true)).to.be.instanceOf(this.target.constructor);
+        expect(rejected(true)).to.be.instanceOf(this.target.constructor);
+        expect(replaceResult(null)).to.be.instanceOf(this.target.constructor);
+        expect(replaceError(null)).to.be.instanceOf(this.target.constructor);
+        expect(result()).to.be.equal(0);
+        expect(error()).to.be.equal(1);
+    });
+});
