@@ -1,11 +1,12 @@
 {
-  "name": "@redtea/cute-promise-state",
+  "name": "@redtea/async-mirror",
   "version": "0.0.7",
-  "description": "Cute promise state manager for react and other",
+  "description": "This library helps to represent any state of an asynchronous action as an object",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "browser": "dist/index.umd.js",
   "types": "types/index.d.ts",
+  "sideEffects": false,
   "files": [
     "dist/",
     "types/",
@@ -19,20 +20,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/org-redtea/cute-promise-state.git"
+    "url": "https://github.com/org-redtea/async-mirror.git"
   },
   "keywords": [
     "state",
+    "async",
+    "asynchronous",
     "promise",
     "manager",
+    "async",
     "react",
     "redux",
+    "vue",
+    "vuex",
     "tools",
     "resolver",
     "resolve",
     "fetching",
     "fetch",
     "lib",
+    "data",
     "loading"
   ],
   "author": "Kirill Khoroshilov <mr.hokid@gmail.com>",

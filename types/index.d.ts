@@ -1,22 +1,32 @@
-export interface PromiseState {
-    pending(): boolean;
-    pending(trueOrFalse: boolean): PromiseState;
-    pending(trueOrFalse?: boolean): PromiseState | boolean;
-
-    resolved(): boolean;
-    resolved(trueOrFalse: boolean, result?: any): PromiseState;
-    resolved(trueOrFalse?: boolean, result?: any): PromiseState | boolean;
-
-    rejected(): boolean;
-    rejected(trueOrFalse: false): PromiseState;
-    rejected(trueOrFalse: boolean, error?: any): PromiseState;
-    rejected(trueOrFalse?: boolean, error?: any): PromiseState | boolean;
-
-    result<T = any>(): T;
-    error<T = any>(): T;
-
-    replaceResult(result: any): PromiseState;
-    replaceError(error: any): PromiseState;
+export interface Pending {
+    isPending: true;
+    isFulfilled: false;
+    isRejected: false;
+    reason: void;
+    value: void;
 }
 
-export function promiseState(defaultResult: any): PromiseState;
+export interface Fulfilled<V = any> {
+    isPending: false;
+    isFulfilled: true;
+    isRejected: false;
+    reason: void;
+    value: V;
+}
+
+export interface Rejected<R = any> {
+    isPending: false;
+    isFulfilled: false;
+    isRejected: true;
+    reason: R;
+    value: void;
+}
+
+export type AsyncState<V = any, R = any> = Pending | Fulfilled<V> | Rejected<R>;
+
+export function resolve<T>(value: T): Fulfilled<T>;
+
+export function reject<T>(reason: T): Rejected<T>;
+
+export function pending(): Pending;
+

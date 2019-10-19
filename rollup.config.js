@@ -7,7 +7,7 @@ export default [
         input: 'src/index.js',
         output: {
             sourcemap: true,
-            name: 'promiseState',
+            name: 'AsyncMirror',
             file: pkg.browser,
             format: 'umd'
         },

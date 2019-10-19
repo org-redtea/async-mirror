@@ -1,23 +1,26 @@
-# Cute promise state
+# Async Mirror
 
-Cute promise state manager for react and other.
+This library helps to represent any state of an asynchronous action as an object
 
 ## Installing
 
 ```bash
-$ npm i -SE @redtea/cute-promise-state
+$ npm i -SE @redtea/async-mirror
 ```
 
-## Example
+## Use case
+
+ - [React](#react) 
+
+#### React
 
 ```JSX
-import React, {Component} from 'react';
-import {promiseState} from '@redtea/cute-promise-state';
+import React from 'react';
+import * as AsyncMirror from '@redtea/async-mirror';
 
-class List extends Component {
+class List extends React.Component {
   state = {
-    list: promiseState([])
-      .pending(true)
+    list: AsyncMirror.pending()
   };
   
   componentDidMount() {
@@ -26,37 +29,38 @@ class List extends Component {
   
   async tryFetchList() {
     this.setState({
-      list: this.state.list
-        .pending(true)
+      list: AsyncMirror.pending()
     });
     
     try {
       const list = await fetchList();
       this.setState({
-        list: this.state.list.resolved(true, list)
+        list: AsyncMirror.resolve(list)
       });
     } catch(error) {
       this.setState({
-        list: this.state.list.rejected(true, error)
+        list: AsyncMirror.reject(error)
       });
     } 
   }
   
   render() {
-    if (this.state.list.pending()) {
+    if (this.state.list.isPending) {
       return 'fetching...';
     }
     
-    if (this.state.list.rejected()) {
-      return 'fail fetching';
+    if (this.state.list.isRejected) {
+      return this.state.list.reason.message;
     }
     
-    const list = this.state.list.result();
+    const list = this.state.list.value;
     
     return (
       <ul>
         {
-          list.map((text, index) => (<li key={index}>{text}</li>))
+          list.map((text, index) => (
+            <li key={index}>{text}</li>
+          ))
         }
       </ul>
     );
