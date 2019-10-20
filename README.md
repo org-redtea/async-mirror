@@ -1,5 +1,10 @@
 # Async Mirror
 
+<div align="center">
+    <a href="https://www.npmjs.com/package/@redtea/async-mirror"><img src="https://img.shields.io/npm/v/@redtea/async-mirror.svg" alt="Version" /></a>
+    <a href="https://www.npmjs.com/package/@redtea/async-mirror"><img src="https://img.shields.io/npm/types/@redtea/async-mirror.svg" alt="Typings" /></a>
+</div>
+
 This library helps to represent any state of an asynchronous action as an object
 
 ## Installing
