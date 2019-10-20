@@ -1,6 +1,6 @@
 {
   "name": "@redtea/async-mirror",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "This library helps to represent any state of an asynchronous action as an object",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
